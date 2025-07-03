@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Compras</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Cabeçalho com botão de voltar e logo -->
+  <header class="header">
+    <nav>
+      <!-- Ícone de voltar (utilizando esc.png como representação de "voltar") -->
+      <a href="#" class="voltar">
+        <img src="Icons/esc.png" alt="Voltar" width="16" height="16"> Voltar
+      </a>
+    </nav>
+    <!-- Título com ícone de home ao lado -->
+    <h1 class="titulo">
+      <img src="Icons/home.png" alt="Home" width="24" height="24">
+      Compras da semana
+    </h1>
+  </header>
+
+  <!-- Conteúdo principal da aplicação -->
+  <main class="conteudo">
+
+    <!-- Formulário para adicionar novo item -->
+    <form class="form-adicionar-item">
+      <input type="text" placeholder="Adicione um novo item" id="novo-item" />
+      <!-- Botão de adicionar com ícone de engrenagem (ex: simboliza ação/operação) -->
+      <button type="submit">
+        <img src="Icons/engrenagem.png" alt="Adicionar" width="16" height="16"> Adicionar item
+      </button>
+    </form>
+
+    <!-- Lista de itens da compra -->
+    <ul class="lista-itens">
+      <li>
+        <!-- Checkbox com ícone de check representando seleção -->
+        <label>
+          <input type="checkbox" />
+          <img src="Icons/check.png" alt="Check" width="16" height="16">
+          Pão de forma
+        </label>
+        <!-- Botão de remover com ícone de lixeira -->
+        <button class="remover">
+          <img src="Icons/trash.png" alt="Remover" width="20" height="20">
+        </button>
+      </li>
+      <li>
+        <label>
+          <input type="checkbox" />
+          <img src="Icons/check.png" alt="Check" width="16" height="16">
+          Café preto
+        </label>
+        <button class="remover">
+          <img src="Icons/trash.png" alt="Remover" width="20" height="20">
+        </button>
+      </li>
+      <li>
+        <label>
+          <input type="checkbox" />
+          <img src="Icons/check.png" alt="Check" width="16" height="16">
+          Suco de laranja
+        </label>
+        <button class="remover">
+          <img src="Icons/trash.png" alt="Remover" width="20" height="20">
+        </button>
+      </li>
+      <li>
+        <label>
+          <input type="checkbox" />
+          <img src="Icons/check.png" alt="Check" width="16" height="16">
+          Bolacha
+        </label>
+        <button class="remover">
+          <img src="Icons/trash.png" alt="Remover" width="20" height="20">
+        </button>
+      </li>
+    </ul>
+
+    <!-- Alerta de remoção com ícone de aviso -->
+    <div class="alerta-remocao">
+      <p>
+        <img src="Icons/aviso.png" alt="Aviso" width="16" height="16">
+        O item foi removido da lista
+      </p>
+      <button class="fechar-alerta">✖</button>
+    </div>
+
+  </main>
+
+</body>
+</html>
