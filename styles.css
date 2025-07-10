@@ -95,13 +95,20 @@ body {
 /* =========================
    Layout Principal
    ========================= */
-.header {
+.conteudo {
   width: 100%;
   max-width: 400px;
-  margin: 40px auto 0 auto;
+  margin: 0 auto;
+  padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 0;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   background: transparent;
 }
 
@@ -115,10 +122,14 @@ body {
 
 .header-titulo-voltar {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   gap: 8px;
   margin-bottom: 16px;
+  width: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .titulo {
