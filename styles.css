@@ -225,7 +225,9 @@ body {
    Alerta de Remoção
    ========================= */
 .alerta-remocao {
-  display: flex;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s;
   align-items: center;
   justify-content: space-between;
   background: #fffbe6;
