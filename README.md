@@ -42,7 +42,8 @@ Lista de compras/
 ├── Icons/              # Ícones do projeto
 │   ├── logo.png        # Logo da aplicação
 │   ├── trash.png       # Ícone de lixeira
-│   └── aviso.png       # Ícone de aviso
+│   ├── aviso.png       # Ícone de aviso
+│   └── favicon.png     # Favicon da aplicação
 └── README.md           # Este arquivo
 ```
 
@@ -137,12 +138,6 @@ Lista de compras/
 2. **Implemente categorias** de produtos
 3. **Crie modo escuro**
 4. **Adicione validações** de entrada
-
-### Para Avançados:
-1. **Integre com API** de produtos
-2. **Implemente autenticação**
-3. **Crie versão PWA**
-4. **Adicione testes automatizados**
 
 ## Contribuindo
 
