@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const alertaRemocao = document.querySelector('.alerta-remocao');
   const btnFecharAlerta = document.querySelector('.fechar-alerta');
   const btnVoltar = document.querySelector('.voltar');
+  
+  // Elemento do botão de copiar lista
+  const btnCopiarLista = document.getElementById('btn-copiar-lista');
 
   // 3. VARIÁVEL PARA ARMAZENAR DADOS (ESTADO)
   
@@ -82,6 +85,18 @@ document.addEventListener('DOMContentLoaded', function() {
         mostrarAlertaRemocao();
       }
     }
+    
+    // Detecta mudanças nos checkboxes
+    if (event.target.type === 'checkbox') {
+      const li = event.target.closest('li');
+      if (li) {
+        if (event.target.checked) {
+          li.classList.add('comprado');
+        } else {
+          li.classList.remove('comprado');
+        }
+      }
+    }
   });
 
   // 6. FUNCIONALIDADE DESFAZER (UNDO)
@@ -131,6 +146,16 @@ document.addEventListener('DOMContentLoaded', function() {
   alertaRemocao.style.display = 'none';
   alertaRemocao.style.opacity = '0';
 
+  // 8.1. APLICAR ESTADO INICIAL AOS CHECKBOXES
+  
+  // Aplica a classe 'comprado' aos itens que já estão marcados
+  const checkboxesExistentes = lista.querySelectorAll('input[type="checkbox"]');
+  checkboxesExistentes.forEach(checkbox => {
+    if (checkbox.checked) {
+      checkbox.closest('li').classList.add('comprado');
+    }
+  });
+
   // 9. ADICIONANDO NOVOS ITENS
   
   // Escuta quando o formulário é enviado (Enter ou botão)
@@ -170,6 +195,84 @@ document.addEventListener('DOMContentLoaded', function() {
     // Coloca o foco de volta no input para facilitar adicionar mais itens
     input.focus();
   });
+
+  // 11. FUNCIONALIDADE DE COPIAR LISTA
+  
+  // Função para gerar o conteúdo da lista de compras
+  function gerarConteudoLista() {
+    const itens = lista.querySelectorAll('li');
+    let conteudo = '📋 Lista de Compras\n\n';
+    
+    if (itens.length === 0) {
+      conteudo += 'Sua lista está vazia. Adicione alguns itens!\n\n';
+    } else {
+      itens.forEach((item, index) => {
+        const texto = item.querySelector('label').textContent.trim();
+        
+        conteudo += `${index + 1}. ${texto}\n`;
+      });
+    }
+    
+    conteudo += '\n---\n';
+    conteudo += 'Lista gerada em: ' + new Date().toLocaleDateString('pt-BR');
+    
+    return conteudo;
+  }
+
+  // Função para copiar lista para área de transferência
+  function copiarLista() {
+    const conteudo = gerarConteudoLista();
+    
+    // Usa a API Clipboard moderna se disponível
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(conteudo).then(() => {
+        mostrarFeedbackCopiado();
+      }).catch(err => {
+        console.error('Erro ao copiar:', err);
+        copiarFallback(conteudo);
+      });
+    } else {
+      // Fallback para navegadores mais antigos
+      copiarFallback(conteudo);
+    }
+  }
+
+  // Método fallback para copiar
+  function copiarFallback(texto) {
+    const textArea = document.createElement('textarea');
+    textArea.value = texto;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+      document.execCommand('copy');
+      mostrarFeedbackCopiado();
+    } catch (err) {
+      console.error('Erro ao copiar:', err);
+      alert('Erro ao copiar. Tente selecionar e copiar manualmente.');
+    }
+    
+    document.body.removeChild(textArea);
+  }
+
+  // Função para mostrar feedback visual
+  function mostrarFeedbackCopiado() {
+    const textoOriginal = btnCopiarLista.textContent;
+    btnCopiarLista.textContent = '✅ Copiado!';
+    btnCopiarLista.style.background = '#10B981';
+    
+    setTimeout(() => {
+      btnCopiarLista.textContent = textoOriginal;
+      btnCopiarLista.style.background = '';
+    }, 2000);
+  }
+
+  // Adiciona o evento de clique ao botão de copiar
+  btnCopiarLista.addEventListener('click', copiarLista);
 });
 
 /*
@@ -185,4 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
  * 8. Array Methods - Trabalhar com listas de elementos
  * 9. Event Object - Acessar informações sobre eventos
  * 10. preventDefault() - Controlar comportamentos padrão
+ * 11. Clipboard API - Copiar conteúdo para área de transferência
+ * 12. CSS Classes - Mudar aparência visual dinamicamente
+ * 13. Fallback Methods - Suporte para navegadores antigos
  */

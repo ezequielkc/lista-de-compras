@@ -234,6 +234,18 @@ body {
   align-items: center;     /* Alinha verticalmente */
   justify-content: space-between; /* Texto à esquerda, botão à direita */
   padding: 0 0 0 2px;     /* Pequeno recuo à esquerda */
+  transition: all 0.3s ease; /* Animação suave para mudanças */
+}
+
+/* Estilo para item marcado como comprado */
+.lista-itens li.comprado {
+  opacity: 0.6;
+  color: var(--content-secondary);
+}
+
+.lista-itens li.comprado label {
+  text-decoration: line-through;
+  color: var(--content-secondary);
 }
 
 /* Botão de remover item */
@@ -346,7 +358,42 @@ footer {
   letter-spacing: 0.2px;  /* Espaçamento entre letras */
 }
 
-/* 12. RESPONSIVIDADE - CELULAR
+/* 12. SEÇÃO DE COPIAR LISTA */
+.copy-section {
+  margin-top: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-copiar-lista {
+  background: var(--color-brand);
+  color: var(--always-white);
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2);
+}
+
+.btn-copiar-lista:hover {
+  background: var(--color-brand-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(99, 102, 241, 0.3);
+}
+
+.btn-copiar-lista:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2);
+}
+
+/* 13. RESPONSIVIDADE - CELULAR
  * 
  * Media queries permitem aplicar estilos diferentes
  * baseado no tamanho da tela
@@ -360,6 +407,11 @@ footer {
   
   .header, footer {
     max-width: 95vw;      /* Ajusta cabeçalho e rodapé também */
+  }
+  
+  .btn-copiar-lista {
+    padding: 10px 20px;
+    font-size: 14px;
   }
 }
 

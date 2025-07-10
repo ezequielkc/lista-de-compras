@@ -8,9 +8,10 @@ Este é um projeto de **lista de compras interativa** criado para ensinar concei
 
 ### O que você pode fazer:
 - **Adicionar itens** - Digite e pressione Enter
-- **Marcar como comprado** - Clique no checkbox
+- **Marcar como comprado** - Clique no checkbox (muda aparência visual)
 - **Remover itens** - Clique na lixeira
 - **Desfazer remoção** - Use o botão "Voltar"
+- **Copiar lista** - Clique em "📋 Copiar lista" para área de transferência
 - **Funciona em celular** - Design responsivo
 
 ## Tecnologias Utilizadas
@@ -28,8 +29,9 @@ Este é um projeto de **lista de compras interativa** criado para ensinar concei
 
 ### JavaScript
 - **Event Listeners** - Detectar ações do usuário
-- **DOM Manipulation** - Criar e modificar elementos
-- **Local Storage** - Salvar dados no navegador
+- **DOM Manipulation** - Criar e modificar elementos HTML
+- **Clipboard API** - Copiar conteúdo para área de transferência
+- **CSS Classes** - Mudar aparência visual dinamicamente
 - **Template Strings** - Criar HTML dinamicamente
 
 ## Estrutura do Projeto
@@ -38,7 +40,7 @@ Este é um projeto de **lista de compras interativa** criado para ensinar concei
 Lista de compras/
 ├── index.html          # Página principal
 ├── styles.css          # Estilos e layout
-├── script.js           # Funcionalidades
+├── script.js           # Funcionalidades JavaScript
 ├── Icons/              # Ícones do projeto
 │   ├── logo.png        # Logo da aplicação
 │   ├── trash.png       # Ícone de lixeira
@@ -110,7 +112,14 @@ Lista de compras/
 // Adiciona à lista
 ```
 
-### 2. Remover Item
+### 2. Marcar como Comprado
+```javascript
+// Usuário clica no checkbox
+// JavaScript adiciona classe 'comprado'
+// Item muda aparência (riscado, opaco)
+```
+
+### 3. Remover Item
 ```javascript
 // Usuário clica na lixeira
 // JavaScript salva o item removido
@@ -118,11 +127,19 @@ Lista de compras/
 // Mostra alerta de confirmação
 ```
 
-### 3. Desfazer Ação
+### 4. Desfazer Ação
 ```javascript
 // Usuário clica em "Voltar"
 // JavaScript recupera o item salvo
 // Reinsere na posição original
+```
+
+### 5. Copiar Lista
+```javascript
+// Usuário clica em "Copiar lista"
+// JavaScript gera conteúdo formatado
+// Copia para área de transferência
+// Mostra feedback visual
 ```
 
 ## Próximos Passos para Aprender
@@ -132,12 +149,14 @@ Lista de compras/
 2. **Adicione novos campos** (quantidade, categoria)
 3. **Crie novas animações** 
 4. **Teste em diferentes dispositivos**
+5. **Adicione mais feedback visual** para ações
 
 ### Para Intermediários:
 1. **Adicione persistência** (salvar no servidor)
 2. **Implemente categorias** de produtos
 3. **Crie modo escuro**
 4. **Adicione validações** de entrada
+5. **Implemente compartilhamento** via WhatsApp/Telegram
 
 ## Contribuindo
 
@@ -150,10 +169,13 @@ Lista de compras/
 
 ### Sugestões de Melhorias:
 - Melhorar responsividade
-- Adicionar temas
-- Implementar busca
-- Adicionar estatísticas
+- Adicionar temas (modo escuro)
+- Implementar busca de itens
+- Adicionar estatísticas de compras
 - Suporte a múltiplos idiomas
+- Compartilhamento via redes sociais
+- Categorização de produtos
+- Histórico de listas
 
 ## Recursos para Aprender Mais
 

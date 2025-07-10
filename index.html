@@ -7,7 +7,13 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Compras</title>
+  
+  <!-- SEO Meta Tags -->
+  <title>Lista de Compras - Organize suas compras de forma simples e eficiente</title>
+  <meta name="description" content="Aplicação web para criar e gerenciar listas de compras. Adicione itens, marque como comprado e remova produtos facilmente. Interface moderna e responsiva.">
+  <meta name="keywords" content="lista de compras, shopping list, organização, produtividade, web app">
+  <meta name="author" content="Ezequiel Kowalski">
+  
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="Icons/favicon.png">
@@ -17,27 +23,26 @@
 <body>
 
   <main class="conteudo">
-    <!-- Cabeçalho com botão de voltar e logo -->
+    <!-- Cabeçalho com logo e título -->
     <header class="header">
       <section class="logo-section">
         <img src="Icons/logo.png" alt="Logo" width="64" height="64">
       </section>
       <div class="header-titulo-voltar">
-        <!-- Título com ícone de home ao lado -->
+        <!-- Título da aplicação -->
         <h1 class="titulo">
           Compras da semana
         </h1>
-        <!-- Ícone de voltar (utilizando esc.png como representação de "voltar") -->
+        <!-- Botão para desfazer última remoção -->
         <a href="#" class="voltar">
           Voltar
         </a>
       </div>
     </header>
 
-    <!-- Formulário para adicionar novo item -->
+    <!-- Formulário para adicionar novos itens -->
     <form class="form-adicionar-item">
       <input type="text" placeholder="Adicione um novo item" id="novo-item" />
-      <!-- Botão de adicionar com ícone de engrenagem (ex: simboliza ação/operação) -->
       <button type="submit">
         Adicionar item
       </button>
@@ -46,12 +51,12 @@
     <!-- Lista de itens da compra -->
     <ul class="lista-itens">
       <li>
-        <!-- Checkbox representando seleção -->
+        <!-- Checkbox para marcar como comprado -->
         <label>
           <input type="checkbox" />
           Pão de forma
         </label>
-        <!-- Botão de remover com ícone de lixeira -->
+        <!-- Botão de remover item -->
         <button class="remover">
           <img src="Icons/trash.png" alt="Remover" width="20" height="20">
         </button>
@@ -84,6 +89,13 @@
         </button>
       </li>
     </ul>
+
+    <!-- Botão para copiar lista para área de transferência -->
+    <div class="copy-section">
+      <button type="button" class="btn-copiar-lista" id="btn-copiar-lista">
+        📋 Copiar lista
+      </button>
+    </div>
 
     <!-- Alerta de remoção com ícone de aviso -->
     <div class="alerta-remocao">
