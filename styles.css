@@ -1,57 +1,72 @@
-/* =========================
-   Reset e Variáveis Globais
-   ========================= */
+
+/* 1. RESET CSS - LIMPANDO ESTILOS PADRÃO
+ * 
+ * O navegador tem estilos padrão para elementos HTML
+ * Este reset remove esses estilos para começarmos do zero
+ */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0;        /* Remove margens externas */
+  padding: 0;       /* Remove preenchimentos internos */
+  box-sizing: border-box; /* Faz com que padding e border sejam incluídos na largura */
 }
 
+/* 2. VARIÁVEIS CSS (CUSTOM PROPERTIES)
+ * 
+ * CSS Variables são como "caixas" onde guardamos valores
+ * Assim podemos reutilizar cores, tamanhos, etc. em todo o projeto
+ * É como ter uma paleta de cores organizada!
+ */
 :root {
-  /* Cores de fundo */
-  --background-primary: #F4F5FB;
-  --background-secondary: #FFFFFF;
+  /* ===== CORES DE FUNDO ===== */
+  --background-primary: #F3F4F6;   /* Cinza bem claro para o fundo principal */
+  --background-secondary: #FFFFFF;  /* Branco para cartões/elementos */
 
-  /* Cores principais */
-  --color-brand: #CA3884;
-  --color-brand-hover: #A52C6B;
-  --color-danger: #C93847;
+  /* ===== CORES PRINCIPAIS ===== */
+  --color-brand: #6366F1;          /* Azul violeta - cor principal do app */
+  --color-brand-hover: #4338CA;    /* Versão mais escura para hover */
+  --color-danger: #EF4444;         /* Vermelho para alertas/erros */
 
-  /* Cores de conteúdo */
-  --content-primary: #080B12;
-  --content-secondary: #374151;
-  --content-tertiary: #9CA3AF;
-  --always-white: #FFFFFF;
+  /* ===== CORES DE TEXTO ===== */
+  --content-primary: #18181B;      /* Quase preto para textos principais */
+  --content-secondary: #6B7280;    /* Cinza médio para textos secundários */
+  --content-tertiary: #A1A1AA;     /* Cinza claro para textos menos importantes */
+  --always-white: #FFFFFF;         /* Branco puro */
 
-  /* Bordas */
-  --border-primary: #D1D5DB;
-  --border-hover: #B9C2D0;
+  /* ===== CORES DE BORDA ===== */
+  --border-primary: #E5E7EB;       /* Cinza claro para bordas */
+  --border-hover: #6366F1;         /* Cor da marca para bordas em hover */
 
-  /* Tipografia */
+  /* ===== SISTEMA DE TIPOGRAFIA ===== */
+  /* Títulos grandes */
   --font-title-size: 24px;
   --font-title-line: 32px;
   --font-title-weight: 700;
 
+  /* Labels (rótulos) */
   --font-label-size: 16px;
   --font-label-line: 20px;
   --font-label-weight: 600;
 
+  /* Parágrafos */
   --font-paragraph-size: 16px;
   --font-paragraph-line: 20px;
   --font-paragraph-weight: 500;
 
+  /* Links */
   --font-link-size: 14px;
   --font-link-line: 16px;
   --font-link-weight: 500;
 }
 
-/* =========================
-   Tipografia Utilitária
-   ========================= */
+/* 3. CLASSES UTILITÁRIAS DE TIPOGRAFIA
+ * 
+ * Estas classes podem ser usadas em qualquer elemento
+ * para aplicar estilos de texto consistentes
+ */
 .title {
-  font-size: var(--font-title-size);
-  line-height: var(--font-title-line);
-  font-weight: var(--font-title-weight);
+  font-size: var(--font-title-size);      /* Usa a variável que definimos */
+  line-height: var(--font-title-line);    /* Espaçamento entre linhas */
+  font-weight: var(--font-title-weight);  /* Espessura da fonte */
 }
 
 .label {
@@ -70,167 +85,192 @@
   font-size: var(--font-link-size);
   line-height: var(--font-link-line);
   font-weight: var(--font-link-weight);
-  text-decoration: underline;
-  cursor: pointer;
+  text-decoration: underline;  /* Sublinha o texto */
+  cursor: pointer;             /* Muda o cursor para mãozinha */
 }
 
+/* 4. CONFIGURAÇÃO BÁSICA DO HTML E BODY */
 html, body {
-  width: 100vw;
-  max-width: 100vw;
-  overflow-x: hidden;
+  width: 100vw;           /* 100% da largura da tela */
+  max-width: 100vw;       /* Nunca ultrapassa a largura da tela */
+  overflow-x: hidden;     /* Esconde rolagem horizontal */
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100vh;      /* Altura mínima = 100% da altura da tela */
   width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  
+  /* Flexbox - sistema de layout moderno */
+  display: flex;           /* Ativa o flexbox */
+  flex-direction: column;  /* Organiza elementos em coluna (vertical) */
+  align-items: center;     /* Centraliza horizontalmente */
+  
+  /* Estilo do fundo */
   background: var(--background-primary);
+  
+  /* Gradientes radiais para um fundo mais interessante */
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(99, 102, 241, 0.02) 0%, transparent 50%);
+  
+  /* Estilo do texto */
   color: var(--content-primary);
-  font-family: "Inter", sans-serif;
-  line-height: 160%;
+  font-family: "Inter", sans-serif;  /* Fonte moderna */
+  line-height: 160%;                 /* Espaçamento entre linhas */
 }
 
-/* =========================
-   Layout Principal
-   ========================= */
+/* 5. LAYOUT PRINCIPAL - CONTAINER */
 .conteudo {
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 0 0.5rem;
+  width: 100%;            /* Ocupa toda a largura disponível */
+  max-width: 400px;       /* Mas nunca mais que 400px */
+  margin: 0 auto;         /* Centraliza horizontalmente */
+  padding: 0 0.5rem;      /* Espaçamento interno nas laterais */
+  
+  /* Flexbox para organizar elementos */
   display: flex;
-  flex-direction: column;
-  gap: 0;
+  flex-direction: column;  /* Elementos em coluna */
+  gap: 0;                 /* Espaçamento entre elementos */
 }
 
+/* 6. CABEÇALHO */
 .header {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  background: transparent;
+  flex-direction: column;  /* Logo e título em coluna */
+  background: transparent; /* Fundo transparente */
 }
 
+/* Estilo da imagem do logo */
 .logo-section img {
-  width: 25rem;
-  max-width: 90%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  width: 25rem;           /* Largura fixa */
+  max-width: 90%;         /* Mas nunca mais que 90% da tela */
+  height: auto;            /* Altura proporcional */
+  display: block;          /* Remove espaços em branco */
+  margin: 0 auto;         /* Centraliza */
 }
 
+/* Container do título e botão voltar */
 .header-titulo-voltar {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 16px;
+  flex-direction: row;     /* Título e botão lado a lado */
+  align-items: center;     /* Alinha verticalmente no centro */
+  justify-content: space-between; /* Espaça os elementos */
+  gap: 8px;               /* Espaçamento entre elementos */
+  margin-bottom: 16px;     /* Espaçamento inferior */
   width: 100%;
-  padding-left: 0.5rem;
+  padding-left: 0.5rem;    /* Espaçamento interno */
   padding-right: 0.5rem;
 }
 
+/* Estilo do título */
 .titulo {
   font-size: 22px;
   line-height: 28px;
   font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 6px;               /* Espaçamento entre ícone e texto */
   margin-bottom: 0;
 }
 
-/* =========================
-   Formulário de Adicionar Item
-   ========================= */
+/* 7. FORMULÁRIO DE ADICIONAR ITEM */
 .form-adicionar-item {
-  margin-bottom: 24px;
+  margin-bottom: 24px;    /* Espaçamento inferior */
   width: 100%;
-  display: flex;
-  gap: 8px;
+  display: flex;           /* Input e botão lado a lado */
+  gap: 8px;               /* Espaçamento entre input e botão */
 }
 
+/* Estilo compartilhado entre input e botão */
 .form-adicionar-item input[type="text"],
 .form-adicionar-item button {
-  border-radius: 6px;
+  border-radius: 6px;     /* Cantos arredondados */
 }
 
+/* Estilo específico do campo de texto */
 .form-adicionar-item input[type="text"] {
-  flex: 2;
-  padding: 10px 14px;
+  flex: 2;                /* Ocupa 2/3 do espaço disponível */
+  padding: 10px 14px;     /* Espaçamento interno */
   border: 1px solid var(--border-primary);
   font-size: 16px;
 }
 
+/* Estilo do botão de adicionar */
 .form-adicionar-item button {
-  flex-shrink: 0;
+  flex-shrink: 0;         /* Não diminui de tamanho */
   padding: 8px 10px;
   min-width: 40px;
   background: var(--color-brand);
   color: var(--always-white);
-  border: none;
+  border: none;            /* Remove borda padrão */
   font-size: 14px;
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 4px;
-  cursor: pointer;
-  transition: background 0.2s;
+  cursor: pointer;         /* Muda cursor para mãozinha */
+  transition: background 0.2s; /* Animação suave ao passar o mouse */
 }
 
+/* Efeito hover no botão */
 .form-adicionar-item button:hover {
   background: var(--color-brand-hover);
 }
 
-/* =========================
-   Lista de Itens
-   ========================= */
+/* 8. LISTA DE ITENS */
 .lista-itens {
-  list-style: none;
-  padding-left: 0;
+  list-style: none;       /* Remove marcadores da lista */
+  padding-left: 0;        /* Remove recuo padrão */
   width: 100%;
   margin-bottom: 24px;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  flex-direction: column;  /* Itens em coluna */
+  gap: 12px;              /* Espaçamento entre itens */
 }
 
+/* Estilo de cada item da lista */
 .lista-itens li {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 0 0 2px;
+  align-items: center;     /* Alinha verticalmente */
+  justify-content: space-between; /* Texto à esquerda, botão à direita */
+  padding: 0 0 0 2px;     /* Pequeno recuo à esquerda */
 }
 
+/* Botão de remover item */
 .remover {
-  background: none;
-  border: none;
-  padding: 4px;
-  margin-left: 8px;
+  background: none;        /* Sem fundo */
+  border: none;            /* Sem borda */
+  padding: 4px;            /* Área de clique */
+  margin-left: 8px;        /* Espaçamento do texto */
   display: flex;
   align-items: center;
   cursor: pointer;
-  transition: filter 0.2s;
+  transition: filter 0.2s; /* Animação suave */
 }
 
+/* Imagem do ícone de lixeira */
 .remover img {
   width: 18px;
   height: 18px;
   display: block;
 }
 
-/* =========================
-   Alerta de Remoção
-   ========================= */
+/* 9. ALERTA DE REMOÇÃO
+ * 
+ * Este alerta aparece quando um item é removido
+ * e permite desfazer a ação
+ */
 .alerta-remocao {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.4s;
+  display: none;           /* Começa escondido */
+  opacity: 0;              /* Totalmente transparente */
+  transition: opacity 0.4s; /* Animação de fade */
+  
+  /* Layout do alerta */
   align-items: center;
-  justify-content: space-between;
-  background: #fffbe6;
+  justify-content: space-between; /* Texto à esquerda, botão à direita */
+  
+  /* Estilo visual */
+  background: #fffbe6;     /* Fundo amarelo claro */
   color: var(--color-danger);
   border: 1px solid var(--color-danger);
   border-radius: 6px;
@@ -240,13 +280,15 @@ body {
   font-size: 15px;
 }
 
+/* Texto do alerta */
 .alerta-remocao p {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 6px;               /* Espaçamento entre ícone e texto */
   margin: 0;
 }
 
+/* Botão de fechar alerta */
 .fechar-alerta {
   background: none;
   border: none;
@@ -256,59 +298,83 @@ body {
   margin-left: 12px;
 }
 
-/* =========================
-   Botão Voltar
-   ========================= */
+/* 10. BOTÃO VOLTAR (UNDO) */
 .voltar {
   display: flex;
   align-items: center;
   gap: 0;
+  
+  /* Estilo visual */
   background: var(--background-primary);
   color: var(--color-brand);
   padding: 4px 10px;
   border-radius: 6px;
   font-size: 14px;
   font-weight: 500;
-  text-decoration: none;
+  text-decoration: none;   /* Remove sublinhado do link */
   border: 1px solid var(--color-brand);
+  
+  /* Animações */
   transition: background 0.2s, color 0.2s;
   min-width: unset;
   height: 28px;
 }
 
+/* Efeito hover no botão voltar */
 .voltar:hover {
   background: var(--color-brand);
   color: var(--always-white);
 }
 
-/* =========================
-   Footer
-   ========================= */
+/* 11. RODAPÉ */
 footer {
   width: 100%;
   max-width: 400px;
-  margin: 24px auto 40px auto;
+  margin: 24px auto 40px auto; /* Espaçamento superior e inferior */
   height: 40px;
   background: transparent;
+  
+  /* Centraliza o conteúdo */
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  /* Estilo do texto */
   font-size: 15px;
   color: var(--content-tertiary);
   font-weight: 500;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.2px;  /* Espaçamento entre letras */
 }
 
-/* =========================
-   Responsividade
-   ========================= */
+/* 12. RESPONSIVIDADE - CELULAR
+ * 
+ * Media queries permitem aplicar estilos diferentes
+ * baseado no tamanho da tela
+ */
 @media (max-width: 500px) {
+  /* Quando a tela tem menos de 500px de largura */
   .conteudo {
-    max-width: 95vw;
-    padding: 8px;
+    max-width: 95vw;      /* 95% da largura da tela */
+    padding: 8px;         /* Mais espaçamento interno */
   }
+  
   .header, footer {
-    max-width: 95vw;
+    max-width: 95vw;      /* Ajusta cabeçalho e rodapé também */
   }
 }
+
+/*
+ * RESUMO CSS:
+ * 
+ * 1. Selectors - Selecionar elementos HTML
+ * 2. CSS Variables - Criar e usar variáveis
+ * 3. Flexbox - Sistema de layout
+ * 4. Box Model - Margin, padding, border
+ * 5. Colors - Cores (hex, rgb, variáveis)
+ * 6. Typography - Estilizar textos
+ * 7. Transitions - Animações
+ * 8. Media Queries - Responsividade
+ * 9. Pseudo-classes - Estados (hover, focus)
+ * 10. Units - Unidades (px, rem, vw, vh, %)
+ */
 
