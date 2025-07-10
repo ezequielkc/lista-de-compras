@@ -1,0 +1,301 @@
+/* =========================
+   Reset e Variáveis Globais
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Cores de fundo */
+  --background-primary: #F4F5FB;
+  --background-secondary: #FFFFFF;
+
+  /* Cores principais */
+  --color-brand: #CA3884;
+  --color-brand-hover: #A52C6B;
+  --color-danger: #C93847;
+
+  /* Cores de conteúdo */
+  --content-primary: #080B12;
+  --content-secondary: #374151;
+  --content-tertiary: #9CA3AF;
+  --always-white: #FFFFFF;
+
+  /* Bordas */
+  --border-primary: #D1D5DB;
+  --border-hover: #B9C2D0;
+
+  /* Tipografia */
+  --font-title-size: 24px;
+  --font-title-line: 32px;
+  --font-title-weight: 700;
+
+  --font-label-size: 16px;
+  --font-label-line: 20px;
+  --font-label-weight: 600;
+
+  --font-paragraph-size: 16px;
+  --font-paragraph-line: 20px;
+  --font-paragraph-weight: 500;
+
+  --font-link-size: 14px;
+  --font-link-line: 16px;
+  --font-link-weight: 500;
+}
+
+/* =========================
+   Tipografia Utilitária
+   ========================= */
+.title {
+  font-size: var(--font-title-size);
+  line-height: var(--font-title-line);
+  font-weight: var(--font-title-weight);
+}
+
+.label {
+  font-size: var(--font-label-size);
+  line-height: var(--font-label-line);
+  font-weight: var(--font-label-weight);
+}
+
+.paragraph {
+  font-size: var(--font-paragraph-size);
+  line-height: var(--font-paragraph-line);
+  font-weight: var(--font-paragraph-weight);
+}
+
+.link {
+  font-size: var(--font-link-size);
+  line-height: var(--font-link-line);
+  font-weight: var(--font-link-weight);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+html, body {
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--background-primary);
+  color: var(--content-primary);
+  font-family: "Inter", sans-serif;
+  line-height: 160%;
+}
+
+/* =========================
+   Layout Principal
+   ========================= */
+.header {
+  width: 100%;
+  max-width: 400px;
+  margin: 40px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+}
+
+.logo-section img {
+  width: 25rem;
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.header-titulo-voltar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.titulo {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 0;
+}
+
+/* =========================
+   Formulário de Adicionar Item
+   ========================= */
+.form-adicionar-item {
+  margin-bottom: 24px;
+  width: 100%;
+  display: flex;
+  gap: 8px;
+}
+
+.form-adicionar-item input[type="text"],
+.form-adicionar-item button {
+  border-radius: 6px;
+}
+
+.form-adicionar-item input[type="text"] {
+  flex: 2;
+  padding: 10px 14px;
+  border: 1px solid var(--border-primary);
+  font-size: 16px;
+}
+
+.form-adicionar-item button {
+  flex-shrink: 0;
+  padding: 8px 10px;
+  min-width: 40px;
+  background: var(--color-brand);
+  color: var(--always-white);
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.form-adicionar-item button:hover {
+  background: var(--color-brand-hover);
+}
+
+/* =========================
+   Lista de Itens
+   ========================= */
+.lista-itens {
+  list-style: none;
+  padding-left: 0;
+  width: 100%;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lista-itens li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 0 2px;
+}
+
+.remover {
+  background: none;
+  border: none;
+  padding: 4px;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.remover img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* =========================
+   Alerta de Remoção
+   ========================= */
+.alerta-remocao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fffbe6;
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-top: 16px;
+  width: 100%;
+  font-size: 15px;
+}
+
+.alerta-remocao p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+
+.fechar-alerta {
+  background: none;
+  border: none;
+  color: var(--color-danger);
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+/* =========================
+   Botão Voltar
+   ========================= */
+.voltar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--background-primary);
+  color: var(--color-brand);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--color-brand);
+  transition: background 0.2s, color 0.2s;
+  min-width: unset;
+  height: 28px;
+}
+
+.voltar:hover {
+  background: var(--color-brand);
+  color: var(--always-white);
+}
+
+/* =========================
+   Footer
+   ========================= */
+footer {
+  width: 100%;
+  max-width: 400px;
+  margin: 24px auto 40px auto;
+  height: 40px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--content-tertiary);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* =========================
+   Responsividade
+   ========================= */
+@media (max-width: 500px) {
+  .conteudo {
+    max-width: 95vw;
+    padding: 8px;
+  }
+  .header, footer {
+    max-width: 95vw;
+  }
+}
+

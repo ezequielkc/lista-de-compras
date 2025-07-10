@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista de Compras</title>
@@ -10,17 +14,19 @@
 
   <!-- Cabeçalho com botão de voltar e logo -->
   <header class="header">
-    <nav>
+    <section class="logo-section">
+      <img src="Icons/logo.png" alt="Logo" width="64" height="64">
+    </section>
+    <div class="header-titulo-voltar">
       <!-- Ícone de voltar (utilizando esc.png como representação de "voltar") -->
       <a href="#" class="voltar">
-        <img src="Icons/esc.png" alt="Voltar" width="16" height="16"> Voltar
+        Voltar
       </a>
-    </nav>
-    <!-- Título com ícone de home ao lado -->
-    <h1 class="titulo">
-      <img src="Icons/home.png" alt="Home" width="24" height="24">
-      Compras da semana
-    </h1>
+      <!-- Título com ícone de home ao lado -->
+      <h1 class="titulo">
+        Compras da semana
+      </h1>
+    </div>
   </header>
 
   <!-- Conteúdo principal da aplicação -->
@@ -31,17 +37,16 @@
       <input type="text" placeholder="Adicione um novo item" id="novo-item" />
       <!-- Botão de adicionar com ícone de engrenagem (ex: simboliza ação/operação) -->
       <button type="submit">
-        <img src="Icons/engrenagem.png" alt="Adicionar" width="16" height="16"> Adicionar item
+        Adicionar item
       </button>
     </form>
 
     <!-- Lista de itens da compra -->
     <ul class="lista-itens">
       <li>
-        <!-- Checkbox com ícone de check representando seleção -->
+        <!-- Checkbox representando seleção -->
         <label>
           <input type="checkbox" />
-          <img src="Icons/check.png" alt="Check" width="16" height="16">
           Pão de forma
         </label>
         <!-- Botão de remover com ícone de lixeira -->
@@ -52,7 +57,6 @@
       <li>
         <label>
           <input type="checkbox" />
-          <img src="Icons/check.png" alt="Check" width="16" height="16">
           Café preto
         </label>
         <button class="remover">
@@ -62,7 +66,6 @@
       <li>
         <label>
           <input type="checkbox" />
-          <img src="Icons/check.png" alt="Check" width="16" height="16">
           Suco de laranja
         </label>
         <button class="remover">
@@ -72,7 +75,6 @@
       <li>
         <label>
           <input type="checkbox" />
-          <img src="Icons/check.png" alt="Check" width="16" height="16">
           Bolacha
         </label>
         <button class="remover">
@@ -91,6 +93,8 @@
     </div>
 
   </main>
+
+  <footer>Feito por Ezequiel Kowalski</footer>
 
 </body>
 </html>
